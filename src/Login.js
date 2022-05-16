@@ -1,13 +1,14 @@
 
 import Axios from 'axios';
 import {useState} from 'react';
+const HOMEURL=require('./Homeurl')
 function Login(props) {
 
   function checkUser(){
     if(!username){
         return
     }
-    Axios.get(`http://localhost:3001/getuser/${username}`).then((response)=>{
+    Axios.get(`${HOMEURL}/getuser/${username}`).then((response)=>{
         if (response.data[0] && response.data[0].password === password) {
             props.setUsername(username)
             console.log('Succesfful login')
@@ -31,5 +32,6 @@ function Login(props) {
       <div onClick={checkUser}>login</div>
     </div>
   );
+
 }
 export default Login;

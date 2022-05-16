@@ -2,12 +2,15 @@
 import Axios from 'axios';
 import {useState, useEffect} from 'react';
 
+const HOMEURL=require('./Homeurl')
+
+
 function Userhome(props) {
     const [cart, setCart] = useState([]);
 
     return <div> {props.username} </div>
     // useEffect(()=>{
-    //     Axios.get(`http://localhost:3001/getcart/${username}`).then((response)=>{
+    //     Axios.get(`${HOMEURL}/getcart/${username}`).then((response)=>{
     //     setCart(response)})
     // }, []);
 
