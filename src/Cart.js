@@ -21,6 +21,8 @@ function Cart({setPage, cart, setCart, customer_ID}){
             })
         }
     }
+
+  
     return <div>
         {cart.map(({food_name, quantity})=>
              <div key={food_name}>{food_name}: <input type="number" value={quantity} onChange={updateQuantity(food_name)}></input></div>

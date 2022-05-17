@@ -34,7 +34,16 @@ function CustomerHome(props) {
         Axios.get(`${HOMEURL}/restaurants`).then((response)=>{
         setRestaurants(response.data)})
     }, [])
+    useEffect(()=>{
+        if(!cart.length){
+            Axios.put(`${HOMEURL}/customer/${customer.customer_ID}`, {restaurant_ID:null})
+            .then((response)=>{
+                setCustomer(prev=>({...prev,restaurant_ID:null}))
 
+            })
+        }
+
+    },[cart])
     // useEffect(()=>{
     //     console.log(customer);
     // }, [customer])
